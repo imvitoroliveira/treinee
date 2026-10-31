@@ -56,13 +56,13 @@ export default function Dashboard() {
     { 
       name: 'Completed', 
       value: stats?.weeklyCount || 0, 
-      fill: 'var(--color-primary)' 
-    },
-    { 
-      name: 'Remaining', 
-      value: Math.max(0, (stats?.weeklyGoal || 5) - (stats?.weeklyCount || 0)), 
-      fill: 'rgba(99, 102, 241, 0.1)' 
-    }
+    fill: 'var(--color-primary)' 
+  },
+  { 
+    name: 'Remaining', 
+    value: Math.max(0, (stats?.weeklyGoal || 5) - (stats?.weeklyCount || 0)), 
+    fill: 'rgba(239, 68, 68, 0.1)' 
+  }
   ];
 
   if (isDataLoading) {
@@ -93,11 +93,11 @@ export default function Dashboard() {
       <motion.header variants={item} className="flex items-center justify-between">
         <div className="flex items-center gap-5">
           <div className="relative">
-            <div className="h-16 w-16 rounded-2xl bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center border border-indigo-100 dark:border-indigo-800/50 shadow-sm overflow-hidden group">
+            <div className="h-16 w-16 rounded-2xl bg-red-50 dark:bg-red-900/30 flex items-center justify-center border border-red-100 dark:border-red-800/50 shadow-sm overflow-hidden group">
                {profile?.avatar_url ? (
                  <img src={profile.avatar_url} alt="Profile" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
                ) : (
-                 <span className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">{(profile?.display_name || profile?.username || "U").charAt(0)}</span>
+                 <span className="text-2xl font-bold text-red-600 dark:text-red-400">{(profile?.display_name || profile?.username || "U").charAt(0)}</span>
                )}
             </div>
             <div className="absolute -bottom-1 -right-1 h-6 w-6 rounded-lg bg-orange-500 border-4 border-background flex items-center justify-center">
@@ -106,7 +106,7 @@ export default function Dashboard() {
           </div>
           <div>
             <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight">
-              Olá, <span className="text-indigo-600 dark:text-indigo-400">{profile?.display_name || profile?.username || "atleta"}</span>!
+              Olá, <span className="text-red-600 dark:text-red-400">{profile?.display_name || profile?.username || "atleta"}</span>!
             </h2>
             <p className="text-slate-500 font-medium mt-0.5">Sua meta semanal está {Math.round(((stats?.weeklyCount || 0) / (stats?.weeklyGoal || 5)) * 100)}% concluída.</p>
           </div>
@@ -132,7 +132,7 @@ export default function Dashboard() {
                 <p className="text-slate-500 max-w-[200px] mx-auto mb-6 font-medium">Que tal planejar sua próxima sessão?</p>
                 <button 
                   onClick={() => navigate('/workouts/create')}
-                  className="px-8 py-4 bg-indigo-600 text-white font-bold rounded-2xl shadow-lg shadow-indigo-200 dark:shadow-none hover:bg-indigo-700 transition-all hover:scale-[1.02] relative z-10"
+                  className="px-8 py-4 bg-red-600 text-white font-bold rounded-2xl shadow-lg shadow-red-200 dark:shadow-none hover:bg-red-700 transition-all hover:scale-[1.02] relative z-10"
                 >
                   Criar Plano
                 </button>
@@ -180,7 +180,7 @@ export default function Dashboard() {
           <div className="card-premium overflow-hidden group">
             <div className="flex items-center justify-between mb-8">
               <h4 className="font-bold text-lg text-slate-900 dark:text-white">Status Semanal</h4>
-              <ArrowUpRight className="text-slate-300 group-hover:text-indigo-500 transition-colors" size={20} />
+              <ArrowUpRight className="text-slate-300 group-hover:text-red-500 transition-colors" size={20} />
             </div>
             <div className="relative h-48 w-full">
               <ResponsiveContainer width="100%" height="100%">
@@ -198,7 +198,7 @@ export default function Dashboard() {
                 const days = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'];
                 const isCompleted = stats?.weeklySessionDays?.includes(day);
                 return (
-                  <span key={day} className={isCompleted ? "text-indigo-600 dark:text-indigo-400" : ""}>
+                  <span key={day} className={isCompleted ? "text-red-600 dark:text-red-400" : ""}>
                     {days[day]}
                   </span>
                 );
@@ -216,7 +216,7 @@ export default function Dashboard() {
           </h4>
           <button 
             onClick={() => navigate('/achievements')} 
-            className="text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 transition-colors"
+            className="text-xs font-bold uppercase tracking-widest text-red-600 dark:text-red-400 hover:text-red-700 transition-colors"
           >
             Ver todas
           </button>
@@ -226,8 +226,8 @@ export default function Dashboard() {
             unlockedAchievements.map((achievement: any) => (
               <div key={achievement.id} className="flex min-w-[140px] flex-col items-center gap-4 rounded-[2rem] bg-slate-50 dark:bg-slate-900/50 p-6 border border-slate-100 dark:border-slate-800 group hover:bg-white dark:hover:bg-slate-800 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                 <div className="relative">
-                  <div className="h-16 w-16 rounded-full bg-indigo-50 dark:bg-indigo-900/20 flex items-center justify-center">
-                    <Award size={32} className="text-indigo-500 group-hover:scale-110 transition-transform duration-500" />
+                  <div className="h-16 w-16 rounded-full bg-red-50 dark:bg-red-900/20 flex items-center justify-center">
+                    <Award size={32} className="text-red-500 group-hover:scale-110 transition-transform duration-500" />
                   </div>
                   <div className="absolute -top-1 -right-1 h-5 w-5 bg-green-500 rounded-full border-2 border-white dark:border-slate-900 flex items-center justify-center">
                     <Zap size={10} className="text-white" fill="currentColor" />

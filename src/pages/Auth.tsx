@@ -142,8 +142,8 @@ export default function Auth() {
     <div className="flex min-h-screen bg-slate-950 overflow-hidden relative">
       {/* Background Decor */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-indigo-600/10 blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-purple-600/10 blur-[120px]" />
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-red-600/10 blur-[120px]" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-rose-600/10 blur-[120px]" />
       </div>
 
       <div className="w-full lg:w-[50%] flex items-center justify-center p-6 sm:p-12 relative z-10">
@@ -154,7 +154,7 @@ export default function Auth() {
           className="w-full max-w-md"
         >
           <div className="mb-12">
-            <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-600 mb-6 shadow-xl shadow-indigo-600/20">
+            <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-red-600 mb-6 shadow-xl shadow-red-600/20">
               <Sparkles className="text-white" size={24} />
             </div>
             <h1 className="text-4xl font-bold text-white tracking-tight mb-3 font-display">
@@ -176,12 +176,12 @@ export default function Auth() {
                 >
                   <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 ml-1">Nome Completo</label>
                   <div className="relative group">
-                    <UserIcon className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-indigo-500 transition-colors" size={20} />
+                    <UserIcon className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-red-500 transition-colors" size={20} />
                     <input
                       {...register("name")}
                       type="text"
                       placeholder="Como quer ser chamado?"
-                      className="w-full rounded-2xl bg-slate-900 border border-slate-800 p-4 pl-12 outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 text-white transition-all placeholder:text-slate-600 font-medium"
+                      className="w-full rounded-2xl bg-slate-900 border border-slate-800 p-4 pl-12 outline-none focus:ring-2 focus:ring-red-500/50 focus:border-red-500 text-white transition-all placeholder:text-slate-600 font-medium"
                     />
                   </div>
                 </motion.div>
@@ -191,12 +191,12 @@ export default function Auth() {
             <div className="space-y-2">
               <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 ml-1">E-mail</label>
               <div className="relative group">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-indigo-500 transition-colors" size={20} />
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-red-500 transition-colors" size={20} />
                 <input
                   {...register("email")}
                   type="email"
                   placeholder="exemplo@email.com"
-                  className="w-full rounded-2xl bg-slate-900 border border-slate-800 p-4 pl-12 outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 text-white transition-all placeholder:text-slate-600 font-medium"
+                  className="w-full rounded-2xl bg-slate-900 border border-slate-800 p-4 pl-12 outline-none focus:ring-2 focus:ring-red-500/50 focus:border-red-500 text-white transition-all placeholder:text-slate-600 font-medium"
                 />
               </div>
             </div>
@@ -206,16 +206,16 @@ export default function Auth() {
                 <div className="flex justify-between items-center ml-1">
                   <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Senha</label>
                   {mode === "login" && (
-                    <button type="button" onClick={() => switchMode("forgot_password")} className="text-[10px] font-bold uppercase tracking-wider text-indigo-500 hover:text-indigo-400">Esqueceu?</button>
+                    <button type="button" onClick={() => switchMode("forgot_password")} className="text-[10px] font-bold uppercase tracking-wider text-red-500 hover:text-red-400">Esqueceu?</button>
                   )}
                 </div>
                 <div className="relative group">
-                  <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-indigo-500 transition-colors" size={20} />
+                  <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-red-500 transition-colors" size={20} />
                   <input
                     {...register("password")}
                     type="password"
                     placeholder="••••••••"
-                    className="w-full rounded-2xl bg-slate-900 border border-slate-800 p-4 pl-12 outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 text-white transition-all placeholder:text-slate-600 font-medium"
+                    className="w-full rounded-2xl bg-slate-900 border border-slate-800 p-4 pl-12 outline-none focus:ring-2 focus:ring-red-500/50 focus:border-red-500 text-white transition-all placeholder:text-slate-600 font-medium"
                   />
                 </div>
               </div>
@@ -224,12 +224,12 @@ export default function Auth() {
             {mode === "login" && (
               <label className="flex items-center gap-3 text-sm font-semibold text-slate-400 cursor-pointer group ml-1">
                 <div className="relative flex h-5 w-5 items-center justify-center">
-                  <input
-                    type="checkbox"
-                    checked={rememberMe}
-                    onChange={(e) => setRememberMe(e.target.checked)}
-                    className="peer h-full w-full appearance-none rounded-lg border border-slate-800 bg-slate-900 checked:bg-indigo-600 checked:border-indigo-600 transition-all cursor-pointer"
-                  />
+                    <input
+                      type="checkbox"
+                      checked={rememberMe}
+                      onChange={(e) => setRememberMe(e.target.checked)}
+                      className="peer h-full w-full appearance-none rounded-lg border border-slate-800 bg-slate-900 checked:bg-red-600 checked:border-red-600 transition-all cursor-pointer"
+                    />
                   <CheckCircle className="absolute h-3.5 w-3.5 text-white opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none" />
                 </div>
                 Manter conectado
@@ -239,7 +239,7 @@ export default function Auth() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full rounded-2xl bg-indigo-600 p-4 font-bold text-white shadow-xl shadow-indigo-600/20 transition-all hover:bg-indigo-700 active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-2 group mt-4"
+              className="w-full rounded-2xl bg-red-600 p-4 font-bold text-white shadow-xl shadow-red-600/20 transition-all hover:bg-red-700 active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-2 group mt-4"
             >
               {loading ? (
                 <div className="h-5 w-5 animate-spin rounded-full border-2 border-white/30 border-t-white" />
@@ -257,7 +257,7 @@ export default function Auth() {
                {mode === "login" ? "Ainda não tem conta?" : "Já possui uma conta?"}
                <button 
                  onClick={() => switchMode(mode === "login" ? "signup" : "login")}
-                 className="ml-2 text-indigo-500 font-bold hover:text-indigo-400"
+                 className="ml-2 text-red-500 font-bold hover:text-red-400"
                >
                  {mode === "login" ? "Cadastre-se agora" : "Faça o login"}
                </button>
@@ -266,20 +266,20 @@ export default function Auth() {
         </motion.div>
       </div>
 
-      <div className="hidden lg:block lg:w-[50%] relative overflow-hidden bg-indigo-600">
+      <div className="hidden lg:block lg:w-[50%] relative overflow-hidden bg-red-600">
         <img 
           src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80" 
           alt="Fitness" 
           className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-40 scale-105 hover:scale-100 transition-transform duration-[2s]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-indigo-950/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-red-950/20 to-transparent" />
         <div className="absolute bottom-20 left-20 right-20">
            <motion.div
              initial={{ opacity: 0, y: 20 }}
              animate={{ opacity: 1, y: 0 }}
              transition={{ delay: 0.5, duration: 1 }}
            >
-             <h2 className="text-6xl font-bold text-white leading-none font-display mb-8 tracking-tighter">A evolução é <br/><span className="text-indigo-400">melhor em dupla.</span></h2>
+             <h2 className="text-6xl font-bold text-white leading-none font-display mb-8 tracking-tighter">A evolução é <br/><span className="text-red-400">melhor em dupla.</span></h2>
              <div className="flex gap-4">
                 <div className="px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold uppercase tracking-[0.2em]">Performance</div>
                 <div className="px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold uppercase tracking-[0.2em]">Conexão</div>
